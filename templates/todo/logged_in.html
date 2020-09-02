@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+You Are Logged In
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header text-capitalize bg-primary text-white">
+                    You are already logged in 
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="text-capitalyze h5">you are logged in as <strong>{{ request.user }}</strong></p>
+                    </div>
+                    <a href="../../../" class="btn btn-primary">Home Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

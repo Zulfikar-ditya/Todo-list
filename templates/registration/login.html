@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="container mb-5 mt-5">
+    <div class="card">
+        <div class="card-header text-capitalize bg-primary text-white">
+            You are already logged in
+        </div>
+        <div class="card-body">
+            <a href="../../../" class="btn btn-primary">Home Page</a>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container mb-5 mt-5 mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4 bg-primary">
+                    <strong>Sign In</strong>
+                </h5>
+                <div class="card-body px-lg-5 pt-0 mt-5 mb-5">
+                    <form action="" method="post" class="text-center">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-outline-info btn-rounded btn-block my-4 wave-effect z-depth-0">Sign
+                            In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock content %}

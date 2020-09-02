@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Todo
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <ul class="list-group">
+                <li class="list-group-item active">My Todo List</li>
+                {% if message == None %}
+                    {% for i in my_todo %}            
+                        {% if i.status == True %}
+                            <li class="list-group-item">{{ i.value }}
+                                <form action="../delete_todo/{{i.id}}/" method="post">
+                                {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm float-right">DELETE</button>
+                                </form>
+                            </li>
+                        {% endif %}
+                    {% endfor %}     
+                    <button class="btn btn-success mt-5">
+                        <a href="../add_todo/" class="text-white">Add Here</a>
+                    </button>   
+                
+                {% else %}
+                    <li class="list-group-item bg-danger text-capitalize text-white">{{ message }}</li>
+            </ul>
+        </div>
+    </div>
+    <button class="btn btn-success mt-5">
+        <a href="../add_todo/" class="text-white">Add Here</a>
+    </button>
+{% endif %}
+</div>
+{% endblock content %}

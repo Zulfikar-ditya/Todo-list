@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My ToDo List
+{% endblock title %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="container mt-5 mb-5">
+    <div class="card text-center">
+        <div class="card-header bg-primary">
+             My ToDo List
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-capitalize">a web for help you</h5>
+            <p class="card-text">This Is A Web For storing your to do before you go someware </p>
+            <a href="../../add_todo/" class="btn btn-success">Add todo</a>
+            <a href="../my_todo/" class="btn btn-success">Check My Todo</a>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container mt-5 mb-5">
+    <div class="card text-center">
+        <div class="card-header bg-primary">
+             My ToDo List
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-capitalize">a web for help you</h5>
+            <p class="card-text">This Is A Web For storing your to do before you go someware </p>
+            <a href="../login/" class="btn btn-success">Login</a>
+            <a href="../register/" class="btn btn-success">Register</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock content %}
